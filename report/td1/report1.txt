@@ -1,0 +1,27 @@
+Rapport sur le développement du modèle de prédiction des vidéos comiques
+A-priori sur les caractéristiques et les modèles
+Caractéristiques (features) :
+
+Nous avons utilisé le nom des vidéos comme principale caractéristique pour prédire si une vidéo est comique ou non.
+Notre hypothèse était que certains mots ou phrases dans le titre d'une vidéo pourraient indiquer sa nature comique.
+Nous avons utilisé TfidfVectorizer pour convertir les noms des vidéos en vecteurs numériques. Ce vectoriseur prend en compte la fréquence des mots tout en réduisant l'importance des mots qui apparaissent fréquemment dans l'ensemble du corpus (comme les mots courants qui n'apportent pas beaucoup d'information).
+Modèles :
+
+Nous avons envisagé d'utiliser plusieurs modèles, notamment RandomForestClassifier, LogisticRegression, et MultinomialNB.
+Notre a priori était que les forêts aléatoires pourraient bien fonctionner car elles peuvent capturer des relations non linéaires et des interactions entre les caractéristiques.
+Apports individuels de chaque variation
+Tokenization et Stemming :
+
+La tokenisation a aidé à décomposer les titres des vidéos en mots individuels pour une meilleure analyse.
+Le stemming, qui convertit les mots à leur racine, a permis de réduire la dimensionnalité et de regrouper les mots similaires, renforçant ainsi la robustesse du modèle.
+Modèles :
+
+RandomForestClassifier : Ce modèle a offert une capacité de généralisation élevée et a pu capturer des relations complexes entre les caractéristiques.
+LogisticRegression : Utile pour comprendre l'importance de chaque mot ou groupe de mots. Cependant, il pourrait ne pas capturer des relations complexes.
+MultinomialNB : Un modèle simple basé sur la probabilité, il est rapide à entraîner mais pourrait ne pas être le plus précis pour notre cas.
+Conclusion
+À l'heure actuelle, notre pipeline de traitement des données transforme efficacement les titres des vidéos en caractéristiques numériques grâce à la tokenisation, au stemming et au TfidfVectorizer. 
+
+En ce qui concerne le modèle, bien que nous ayons envisagé plusieurs modèles, des tests supplémentaires (cross vsalidation) sont nécessaires pour déterminer lequel offre les meilleures performances pour notre problème spécifique.
+
+Nous recommandons également d'explorer d'autres caractéristiques, comme la description de la vidéo, les métadonnées, etc., pour améliorer davantage les performances du modèle. De plus, l'utilisation de techniques plus avancées telles que le word embedding ou les modèles basés sur des réseaux de neurones pourrait également être explorée pour améliorer les performances.
