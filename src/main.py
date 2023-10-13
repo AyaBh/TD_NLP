@@ -54,7 +54,7 @@ def evaluate(task, input_filename):
     df = make_dataset(input_filename)
 
     # Make features (tokenization, lowercase, stopwords, stemming...)
-    X, y = make_features(df, task, train_mode=True, vectorizer_path='path_to_save_vectorizer.pkl')
+    X, y = make_features(df, task, train_mode=True, vectorizer_path="vectorizer/vectorizer.pkl")
 
     
     model = make_model()
